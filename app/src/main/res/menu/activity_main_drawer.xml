@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_yt"
+            android:checkable="true"
+            android:checked="true"
+            android:icon="@drawable/nav_youtube"
+            android:title="Youtube" />
+        <item
+            android:id="@+id/nav_fb"
+            android:checkable="true"
+            android:icon="@drawable/nav_fb"
+            android:iconTintMode="add"
+            android:title="Facebook" />
+        <item
+            android:checkable="true"
+            android:id="@+id/nav_twitter"
+            android:icon="@drawable/nav_twitter"
+            android:title="Twitter" />
+        <item
+            android:checkable="true"
+            android:id="@+id/nav_goplus"
+            android:icon="@drawable/nav_go"
+            android:title="Google +" />
+        <item
+            android:checkable="true"
+            android:id="@+id/nav_insta"
+            android:icon="@drawable/nav_instagram"
+            android:title="Instagram" />
+        <item
+            android:checkable="true"
+            android:id="@+id/nav_blog"
+            android:icon="@drawable/nav_blogger"
+            android:title="Blogger" />
+    </group>
+
+    <item android:title="Others">
+        <menu>
+            <item
+                android:id="@+id/nav_web"
+                android:icon="@drawable/ic_web"
+                android:title="Website" />
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/nav_share"
+                android:title="Share this App" />
+        </menu>
+    </item>
+
+</menu>
