@@ -4,23 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kkmeena.SplashActivity">
+    tools:context="com.kkmeena.SplashActivity"
+    android:id="@+id/container2"
+    >
 
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@drawable/splash"
-        android:scaleType="fitStart"/>
-    <TextView
+   <TextView
+        android:id="@+id/laod"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="#454545"
+        android:text="Loading.."
+       android:textColor="#fff"
+        android:textSize="20sp"
         android:gravity="center"
-        android:paddingTop="370dp"
-        android:layout_centerInParent="true"
-        android:text="www.kamalkishormeena.com"/>
+        android:layout_marginTop="450dp"/>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:theme="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/laod"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="5dp"
+        android:scaleX=".8"
+        android:indeterminate="true"
+        android:indeterminateBehavior="cycle"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/colorWhite"
+        android:scaleY=".8"/>
+
+
+
 
 </RelativeLayout>

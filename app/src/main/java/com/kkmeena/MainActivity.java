@@ -65,8 +65,13 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFF0000")));
+
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        }
 /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +84,10 @@ public class MainActivity extends AppCompatActivity
 
         if (!isConnected(MainActivity.this)) buildDialog(MainActivity.this).show();
         else {
+            if(savedInstanceState!=null)
+            {
+                ((WebView)findViewById(R.id.webview)).restoreState(savedInstanceState);
+            }
             mWebView = (WebView) findViewById(R.id.webview);
             swipe = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
             swipe.setOnRefreshListener((SwipeRefreshLayout.OnRefreshListener) MainActivity.this);
@@ -88,6 +97,7 @@ public class MainActivity extends AppCompatActivity
             mWebView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
             //mWebView.getSettings().setAppCacheEnabled(true);
             mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+
             //mWebView.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
             if (Build.VERSION.SDK_INT >= 19) {
                 WebView webView = mWebView;
@@ -150,6 +160,17 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    private void onUp(){
+
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mWebView.saveState(outState);
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -180,16 +201,22 @@ public class MainActivity extends AppCompatActivity
     }
 
     public AlertDialog.Builder buildDialog(Context c){
-        AlertDialog.Builder builder=new AlertDialog.Builder(c);
+        final AlertDialog.Builder builder=new AlertDialog.Builder(c);
         builder.setIcon(R.drawable.ic_error);
         builder.setTitle(getString(R.string.nonet));
         builder.setMessage(getString(R.string.nonet_msg));
         builder.setPositiveButton(getString(R.string.Retry), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent=getIntent();
-                finish();
-                startActivity(intent);
+
+                if(!isConnected(MainActivity.this))
+                    buildDialog(MainActivity.this).show();
+                else {
+
+                }
+               // Intent intent=getIntent();
+                //finish();
+                //startActivity(intent);
             }
         });
         builder.setCancelable(true);

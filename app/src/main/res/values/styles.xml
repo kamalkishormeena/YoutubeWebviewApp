@@ -7,13 +7,24 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="ThemeDefault" parent="@android:style/Theme.Light.NoTitleBar"></style>
+
+    <style name="ThemeDefault" parent="@android:style/Theme.Light.NoTitleBar"/>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+       <!-- <item name="android:windowTranslucentNavigation">true</item> -->
+
     </style>
 
+    <style name="Splash" parent="AppTheme.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash2</item>
+    </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

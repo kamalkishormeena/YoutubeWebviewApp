@@ -42,4 +42,5 @@
     <string name="share_this_content">Share this content</string>
     <string name="back_tast">Press Back again to exit</string>
     <string name="title_activity_splash">SplashActivity</string>
+    <string name="webaddress">www.kamalkishormeena.com</string>
 </resources>

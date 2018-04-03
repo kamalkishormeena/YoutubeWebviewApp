@@ -12,4 +12,12 @@
     <color name="twi">#1ab3ff</color>
     <color name="ins">#ff00b7</color>
     <color name="yt">#ff0004</color>
+    <color name="progressbar">#f50404</color>
+    <color name="g1">#ff0000</color>
+    <color name="g2">#b90a0a</color>
+    <color name="g3">#e63e3e</color>
+    <color name="g4">#c92424</color>
+    <color name="g5">#f72d00</color>
+    <color name="g6">#ff0048</color>
+
 </resources>
